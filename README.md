@@ -26,7 +26,26 @@ GitHub Actions에서 가장 상위 개념인 워크플로우(Workflow, 작업 �
 
 예를 들어, 코드 저장소의 main 브랜치에 push 이벤트가 발생할 때 마다 워크플로우를 실행하려면 다음과 같이 설정해줍니다.
 
-<div class="gatsby-code-title">.github/workflows/example.yml</div>
-<div class="gatsby-highlight" data-language="yml"><pre class="language-yml"><code class="language-yml"><span class="gatsby-highlight-code-line"><span class="token key atrule">on</span><span class="token punctuation">:</span></span><span class="gatsby-highlight-code-line">  <span class="token key atrule">push</span><span class="token punctuation">:</span></span><span class="gatsby-highlight-code-line">    <span class="token key atrule">branches</span><span class="token punctuation">:</span></span><span class="gatsby-highlight-code-line">      <span class="token punctuation">-</span> main</span>
-<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
-  <span class="token comment"># ...(생략)...</span></code></pre></div>
+.github/workflows/example.yml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # ...(생략)...
+  
+  
+다른 예로, 매일 자정에 워크플로우를 실행하려면 다음과 같이 설정합니다.
+
+.github/workflows/hello
+on:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  # ...(생략)...
+두번째는 jobs 속성을 통해서 해당 워크플로우가 구체적으로 어떤 일을 해야하는지 명시해야하는데요. 이 부분은 내용이 많으니 다음 섹션에서 알아볼까요?
+
+
+  
